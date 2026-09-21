@@ -49,7 +49,7 @@ public class GildedRoseTest
         Assert.Equal(0, items[0].Quality);
         Assert.Equal(1, items[0].SellIn);
     }
-
+    
     [Fact]
     public void UpdateQuality_QualityShouldIncreaseByOne_WhenItemIsAgedBrie()
     {
