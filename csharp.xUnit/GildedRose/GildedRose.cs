@@ -14,15 +14,17 @@ public class GildedRose
     public void UpdateQuality()
     {
         foreach (Item item in Items)
-        {           
+        {
             if (item.Name != "Sulfuras, Hand of Ragnaros")
             {
+                item.SellIn = item.SellIn - 1;
+
                 if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (item.Quality > 0)
-                    {
-                        item.Quality = item.Quality - 1;
-                    }
+                    //if (item.Quality > 0)
+                    //{
+                    //    item.Quality = item.Quality - 1;
+                    //}
                 }
                 else
                 {
@@ -50,35 +52,57 @@ public class GildedRose
                         }
                     }
                 }
-
-                item.SellIn = item.SellIn - 1;
                 
-                if (item.SellIn < 0)
+                switch (item.Name)
                 {
-                    if (item.Name != "Aged Brie")
-                    {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (item.Quality > 0)
-                            {
-                                item.Quality = item.Quality - 1;
-                            }
-                        }
-                        else
-                        {
-                            item.Quality = 0;
-                        }
-                    }
-                    else
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
+                    case "Aged Brie":
+                        CalculateAgedBrieQuality(item);
+                        break;
+                    case "Backstage passes to a TAFKAL80ETC concert":
+                        CalculateBackstagePassesQuality(item);
+                        break;
+
+                    default:
+                        CalculateOtherItemsQuality(item);
+                        break;
                 }
             }
                 
+        }
+    }
+
+    private void CalculateAgedBrieQuality(Item item)
+    {
+        if (item.SellIn < 0)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+            }
+        }
+    }
+
+    private void CalculateOtherItemsQuality(Item item)
+    {
+        if (item.Quality > 0)
+        {
+            item.Quality = item.Quality - 1;
+        }
+
+        if (item.SellIn < 0)
+        {
+            if (item.Quality > 0)
+            {
+                item.Quality = item.Quality - 1;
+            }
+        }
+    }
+    
+    private void CalculateBackstagePassesQuality(Item item)
+    {
+        if (item.SellIn < 0)
+        {
+            item.Quality = 0;
         }
     }
 }
