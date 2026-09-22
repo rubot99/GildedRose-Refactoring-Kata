@@ -28,5 +28,9 @@
     Name: Conjured Mana Cake,
     SellIn: 2,
     Quality: -1
+  },
+  {
+    Name: Conjured Mana Cake,
+    SellIn: -2
   }
 ]

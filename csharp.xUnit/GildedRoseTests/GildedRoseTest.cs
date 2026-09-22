@@ -171,4 +171,26 @@ public class GildedRoseTest
         Assert.Equal(2, items[0].Quality);
         Assert.Equal(-1, items[0].SellIn);
     }
+
+    [Fact]
+    public void UpdateQuality_QualityShouldNotGoNegative_WhenItemIsConjuredAndExpiredWithLowQuality()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = -1, Quality = 1 } };
+        GildedRose app = new GildedRose(items);
+        app.UpdateQuality();
+        Assert.Equal("Conjured Mana Cake", items[0].Name);
+        Assert.Equal(0, items[0].Quality);
+        Assert.Equal(-2, items[0].SellIn);
+    }
+
+    [Fact]
+    public void UpdateQuality_QualityShouldNotGoNegative_WhenItemIsOtherAndExpiredWithLowQuality()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "foo", SellIn = -1, Quality = 1 } };
+        GildedRose app = new GildedRose(items);
+        app.UpdateQuality();
+        Assert.Equal("foo", items[0].Name);
+        Assert.Equal(0, items[0].Quality);
+        Assert.Equal(-2, items[0].SellIn);
+    }
 }

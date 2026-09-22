@@ -17,7 +17,7 @@
   {
     Name: Elixir of the Mongoose,
     SellIn: 4,
-    Quality: 50
+    Quality: 49
   },
   {
     Name: Elixir of the Mongoose,
@@ -28,5 +28,9 @@
     Name: Elixir of the Mongoose,
     SellIn: -2,
     Quality: -5
+  },
+  {
+    Name: Elixir of the Mongoose,
+    SellIn: -2
   }
 ]

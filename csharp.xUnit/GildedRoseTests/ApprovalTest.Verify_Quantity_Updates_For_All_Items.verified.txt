@@ -47,7 +47,7 @@
   {
     Name: Elixir of the Mongoose,
     SellIn: 4,
-    Quality: 50
+    Quality: 49
   },
   {
     Name: Elixir of the Mongoose,

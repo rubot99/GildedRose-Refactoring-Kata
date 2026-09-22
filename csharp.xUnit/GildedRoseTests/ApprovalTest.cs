@@ -159,8 +159,6 @@ public class ApprovalTest
                 SellIn = -4,
                 Quality = -49
             },
-            
-            // this conjured item does not work properly yet
             new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
         };
         
@@ -181,14 +179,15 @@ public class ApprovalTest
             new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 50},
             new Item {Name = "Elixir of the Mongoose", SellIn = -1, Quality = 5},
             new Item {Name = "Elixir of the Mongoose", SellIn = -1, Quality = -5},
+            new Item {Name = "Elixir of the Mongoose", SellIn = -1, Quality = 1},
         };
-        
+
         GildedRose app = new GildedRose(items);
         app.UpdateQuality();
 
         return Verifier.Verify(items);
     }
-    
+
     [Fact]
     public Task Verify_Quantity_Updates_For_Sulfuras()
     {
@@ -219,6 +218,7 @@ public class ApprovalTest
             new Item {Name = "Conjured Mana Cake", SellIn = -1, Quality = -1},            
             new Item {Name = "Conjured Mana Cake", SellIn = -1, Quality = 31},
             new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = -1},
+            new Item {Name = "Conjured Mana Cake", SellIn = -1, Quality = 1},
         };
         
         GildedRose app = new GildedRose(items);

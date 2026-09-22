@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GildedRoseKata;
 
@@ -53,31 +54,19 @@ public class GildedRose
 
     private void CalculateOtherItemsQuality(Item item)
     {
-        if (item.Quality > 0 && item.Quality < 50)
-        {                
-            if(item.SellIn < 0)
-            {
-                item.Quality = item.Quality - 2;            
-            }
-            else
-            {
-                item.Quality = item.Quality - 1;
-            }
+        if (item.Quality > 0)
+        {
+            int amount = item.SellIn < 0 ? 2 : 1;
+            item.Quality = Math.Max(0, item.Quality - amount);
         }
     }
 
     private void CalculateConjuredItemsQuality(Item item)
     {
         if (item.Quality > 0)
-        {                
-            if(item.SellIn < 0)
-            {
-                item.Quality = item.Quality - 4;            
-            }
-            else
-            {
-                item.Quality = item.Quality - 2;
-            }
+        {
+            int amount = item.SellIn < 0 ? 4 : 2;
+            item.Quality = Math.Max(0, item.Quality - amount);
         }
     }
     
