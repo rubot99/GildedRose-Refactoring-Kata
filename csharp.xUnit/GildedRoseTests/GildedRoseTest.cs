@@ -51,6 +51,17 @@ public class GildedRoseTest
     }
     
     [Fact]
+    public void UpdateQuality_QualityShouldIncreaseByOne_WhenItemIsAgedBrieAndSellInIsLessThanZero()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Aged Brie", SellIn = -1, Quality = 5 } };
+        GildedRose app = new GildedRose(items);
+        app.UpdateQuality();
+        Assert.Equal("Aged Brie", items[0].Name);
+        Assert.Equal(7, items[0].Quality);
+        Assert.Equal(-2, items[0].SellIn);
+    }
+
+    [Fact]
     public void UpdateQuality_QualityShouldIncreaseByOne_WhenItemIsAgedBrie()
     {
         IList<Item> items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 2, Quality = 5 } };
@@ -62,7 +73,7 @@ public class GildedRoseTest
     }
 
     [Fact]
-    public void UpdateQuality_QualityShouldIncreaseAfterFifty_WhenItemIsAgedBrie()
+    public void UpdateQuality_QualityShouldNotIncreaseAfterFifty_WhenItemIsAgedBrie()
     {
         IList<Item> items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 2, Quality = 50 } };
         GildedRose app = new GildedRose(items);
@@ -71,7 +82,8 @@ public class GildedRoseTest
         Assert.Equal(50, items[0].Quality);
         Assert.Equal(1, items[0].SellIn);
     }
-
+    
+    
     [Fact]
     public void UpdateQuality_QualityShouldIncreaseByOne_WhenItemIsBackstagePassesAndSellInIsGreaterThanTen()
     {
@@ -136,5 +148,16 @@ public class GildedRoseTest
         Assert.Equal("Sulfuras, Hand of Ragnaros", items[0].Name);
         Assert.Equal(80, items[0].Quality);
         Assert.Equal(10, items[0].SellIn);
+    }
+    
+    [Fact]
+    public void UpdateQuality_QualityShouldAlwaysBeEighty_WhenItemIsConjured()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = 3, Quality = 6 } };
+        GildedRose app = new GildedRose(items);
+        app.UpdateQuality();
+        Assert.Equal("Conjured Mana Cake", items[0].Name);
+        Assert.Equal(5, items[0].Quality);
+        Assert.Equal(2, items[0].SellIn);
     }
 }

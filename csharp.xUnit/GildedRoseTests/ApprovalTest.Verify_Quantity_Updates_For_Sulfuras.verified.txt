@@ -1,0 +1,31 @@
+﻿[
+  {
+    Name: Sulfuras, Hand of Ragnaros,
+    SellIn: 5,
+    Quality: 80
+  },
+  {
+    Name: Sulfuras, Hand of Ragnaros,
+    SellIn: 3,
+    Quality: 8
+  },
+  {
+    Name: Sulfuras, Hand of Ragnaros,
+    Quality: 80
+  },
+  {
+    Name: Sulfuras, Hand of Ragnaros,
+    SellIn: -1,
+    Quality: 80
+  },
+  {
+    Name: Sulfuras, Hand of Ragnaros,
+    SellIn: -1,
+    Quality: 82
+  },
+  {
+    Name: Sulfuras, Hand of Ragnaros,
+    SellIn: -1,
+    Quality: -82
+  }
+]

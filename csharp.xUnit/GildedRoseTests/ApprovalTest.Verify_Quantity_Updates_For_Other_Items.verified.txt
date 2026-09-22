@@ -1,0 +1,32 @@
+﻿[
+  {
+    Name: +5 Dexterity Vest,
+    SellIn: 9,
+    Quality: 19
+  },
+  {
+    Name: Elixir of the Mongoose,
+    SellIn: 4,
+    Quality: 6
+  },
+  {
+    Name: Elixir of the Mongoose,
+    SellIn: 4,
+    Quality: -1
+  },
+  {
+    Name: Elixir of the Mongoose,
+    SellIn: 4,
+    Quality: 51
+  },
+  {
+    Name: Elixir of the Mongoose,
+    SellIn: -2,
+    Quality: 3
+  },
+  {
+    Name: Elixir of the Mongoose,
+    SellIn: -2,
+    Quality: -5
+  }
+]
