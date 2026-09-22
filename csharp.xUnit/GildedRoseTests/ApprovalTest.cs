@@ -102,7 +102,7 @@ public class ApprovalTest
             new Item {Name = "Aged Brie", SellIn = -5, Quality = -4},
             new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
             new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = -1},
-            new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 52},
+            new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 50},
             new Item {Name = "Elixir of the Mongoose", SellIn = -1, Quality = 5},
             new Item {Name = "Elixir of the Mongoose", SellIn = -1, Quality = -5},
             new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 5, Quality = 80},
@@ -172,7 +172,7 @@ public class ApprovalTest
             new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
             new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
             new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = -1},
-            new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 52},
+            new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 50},
             new Item {Name = "Elixir of the Mongoose", SellIn = -1, Quality = 5},
             new Item {Name = "Elixir of the Mongoose", SellIn = -1, Quality = -5},
         };
