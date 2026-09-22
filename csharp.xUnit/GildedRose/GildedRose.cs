@@ -19,40 +19,6 @@ public class GildedRose
             {
                 item.SellIn = item.SellIn - 1;
 
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    //if (item.Quality > 0)
-                    //{
-                    //    item.Quality = item.Quality - 1;
-                    //}
-                }
-                else
-                {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (item.SellIn < 11)
-                            {
-                                if (item.Quality < 50)
-                                {
-                                    item.Quality = item.Quality + 1;
-                                }
-                            }
-
-                            if (item.SellIn < 6)
-                            {
-                                if (item.Quality < 50)
-                                {
-                                    item.Quality = item.Quality + 1;
-                                }
-                            }
-                        }
-                    }
-                }
-                
                 switch (item.Name)
                 {
                     case "Aged Brie":
@@ -66,13 +32,17 @@ public class GildedRose
                         CalculateOtherItemsQuality(item);
                         break;
                 }
-            }
-                
+            }                
         }
     }
 
     private void CalculateAgedBrieQuality(Item item)
     {
+        if (item.Quality < 50)
+        {
+            item.Quality = item.Quality + 1;
+        }
+
         if (item.SellIn < 0)
         {
             if (item.Quality < 50)
@@ -100,6 +70,27 @@ public class GildedRose
     
     private void CalculateBackstagePassesQuality(Item item)
     {
+        if (item.Quality < 50)
+        {
+            item.Quality = item.Quality + 1;
+
+            if (item.SellIn < 11)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
+                }
+            }
+
+            if (item.SellIn < 6)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
+                }
+            }
+        }
+
         if (item.SellIn < 0)
         {
             item.Quality = 0;
