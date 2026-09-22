@@ -123,6 +123,12 @@ public class ApprovalTest
                 SellIn = 10,
                 Quality = 49
             },
+             new Item
+            {
+                Name = "Backstage passes to a TAFKAL80ETC concert",
+                SellIn = 8,
+                Quality = 40
+            },
             new Item
             {
                 Name = "Backstage passes to a TAFKAL80ETC concert",
