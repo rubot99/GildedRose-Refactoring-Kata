@@ -151,13 +151,24 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void UpdateQuality_QualityShouldAlwaysBeEighty_WhenItemIsConjured()
+    public void UpdateQuality_QualityShouldReduceByTwo_WhenItemIsConjured()
     {
         IList<Item> items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = 3, Quality = 6 } };
         GildedRose app = new GildedRose(items);
         app.UpdateQuality();
         Assert.Equal("Conjured Mana Cake", items[0].Name);
-        Assert.Equal(5, items[0].Quality);
+        Assert.Equal(4, items[0].Quality);
         Assert.Equal(2, items[0].SellIn);
+    }
+
+    [Fact]
+    public void UpdateQuality_QualityShouldReduceByFour_WhenItemIsConjuredANDSellInIsZero()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = 0, Quality = 6 } };
+        GildedRose app = new GildedRose(items);
+        app.UpdateQuality();
+        Assert.Equal("Conjured Mana Cake", items[0].Name);
+        Assert.Equal(2, items[0].Quality);
+        Assert.Equal(-1, items[0].SellIn);
     }
 }

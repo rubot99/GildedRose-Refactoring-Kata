@@ -123,6 +123,6 @@
   {
     Name: Conjured Mana Cake,
     SellIn: 2,
-    Quality: 5
+    Quality: 4
   }
 ]

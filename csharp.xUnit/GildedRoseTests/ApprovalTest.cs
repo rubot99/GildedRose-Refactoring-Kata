@@ -201,4 +201,23 @@ public class ApprovalTest
 
         return Verifier.Verify(items);
     }
+
+    [Fact]
+    public Task Verify_Quantity_Updates_For_Conjured_Items()
+    {
+        IList<Item> items = new List<Item>
+        {
+            new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6},
+            new Item {Name = "Conjured Mana Cake", SellIn = 0, Quality = 6},
+            new Item {Name = "Conjured Mana Cake", SellIn = 4, Quality = 50},
+            new Item {Name = "Conjured Mana Cake", SellIn = -1, Quality = -1},            
+            new Item {Name = "Conjured Mana Cake", SellIn = -1, Quality = 31},
+            new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = -1},
+        };
+        
+        GildedRose app = new GildedRose(items);
+        app.UpdateQuality();
+
+        return Verifier.Verify(items);
+    }
 }

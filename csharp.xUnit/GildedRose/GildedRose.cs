@@ -27,7 +27,9 @@ public class GildedRose
                     case "Backstage passes to a TAFKAL80ETC concert":
                         CalculateBackstagePassesQuality(item);
                         break;
-
+                    case "Conjured Mana Cake":
+                        CalculateConjuredItemsQuality(item);
+                        break;
                     default:
                         CalculateOtherItemsQuality(item);
                         break;
@@ -62,6 +64,21 @@ public class GildedRose
             else
             {
                 item.Quality = item.Quality - 1;
+            }
+        }
+    }
+
+    private void CalculateConjuredItemsQuality(Item item)
+    {
+        if (item.Quality > 0)
+        {                
+            if(item.SellIn < 0)
+            {
+                item.Quality = item.Quality - 4;            
+            }
+            else
+            {
+                item.Quality = item.Quality - 2;
             }
         }
     }
