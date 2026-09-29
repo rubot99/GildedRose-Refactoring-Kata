@@ -8,6 +8,10 @@ dependencies = [
 ]
 
 [dependency-groups]
+dev = [
+    "approvaltests>=19.1.1",
+    "pytest>=9.1.1",
+]
 test = [
     "approvaltests>=16.2.1",
     "pytest>=9.0.2",
