@@ -1,23 +1,21 @@
-from approvaltests import verify_all_combinations
+import io
+import sys
 
-from gilded_rose import GildedRose, Item
+from approvaltests import verify
+from texttest_fixture import main
 
-NAMES = [
-    "+5 Dexterity Vest",
-    "Aged Brie",
-    "Backstage passes to a TAFKAL80ETC concert",
-    "Sulfuras, Hand of Ragnaros",
-    "Conjured Mana Cake",
-]
-SELL_INS = [-1, 0, 1, 5, 6, 10, 11]
-QUALITIES = [0, 1, 48, 49, 50, 80]
+def test_gilded_rose_approvals():
+    orig_sysout = sys.stdout
+    try:
+        fake_stdout = io.StringIO()
+        sys.stdout = fake_stdout
+        sys.argv = ["texttest_fixture.py", 30]
+        main()
+        answer = fake_stdout.getvalue()
+    finally:
+        sys.stdout = orig_sysout
 
+    verify(answer)
 
-def update_item(name, sell_in, quality):
-    item = Item(name, sell_in, quality)
-    GildedRose([item]).update_quality()
-    return item
-
-
-def test_update_quality_all_combinations():
-    verify_all_combinations(update_item, [NAMES, SELL_INS, QUALITIES])
+if __name__ == "__main__":
+    test_gilded_rose_approvals()
