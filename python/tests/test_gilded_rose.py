@@ -1,19 +1,9 @@
-# -*- coding: utf-8 -*-
-import unittest
-
-from gilded_rose import Item, GildedRose
+from gilded_rose import GildedRose, Item
 
 
-class GildedRoseTest(unittest.TestCase):
-    def test_update_quality_expect_reduce_quality_sellin_by_one_when_quality_sellin_are_positive (self):
-        items = [Item("foo", 2, 2)]
-        gilded_rose = GildedRose(items)
-        gilded_rose.update_quality()
-        self.assertEqual("foo", items[0].name)
-        self.assertEqual(1, items[0].quality)
-        self.assertEqual(1, items[0].sell_in)
-
-
-        
-if __name__ == '__main__':
-    unittest.main()
+def test_normal_item_loses_one_quality_and_one_sell_in_per_day():
+    items = [Item("foo", 2, 2)]
+    GildedRose(items).update_quality()
+    assert items[0].name == "foo"
+    assert items[0].quality == 1
+    assert items[0].sell_in == 1
