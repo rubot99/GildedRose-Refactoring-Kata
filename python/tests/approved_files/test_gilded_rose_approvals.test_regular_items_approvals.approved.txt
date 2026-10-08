@@ -1,0 +1,1 @@
+[foo vest, 4, 4, foo vest, 0, 4, foo vest, -1, 3]

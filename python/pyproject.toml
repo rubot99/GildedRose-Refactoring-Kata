@@ -5,6 +5,7 @@ description = "Gilded Rose Refactoring Kata – Blend360 Assignment"
 requires-python = ">=3.10"
 dependencies = [
     "coverage>=7.13.0",
+    "pytest-cov>=7.1.0",
 ]
 
 [dependency-groups]
